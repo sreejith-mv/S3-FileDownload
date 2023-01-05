@@ -14,20 +14,20 @@ export class VideoService {
     const fileExtension = articleName.split('.').pop();
     const fileName = articleName.split('.')[0];
 
-    return new Promise(async (resolve, reject) => {
-      await this.http.downloadFile(
-        encodeURI(`https://pfizer.sharepoint.com/sites/ProtectPfizerSite/_api/web/GetFileByServerRelativeUrl('/sites/ProtectPfizerSite/Knowledge%20Documents/Awareness%20Videos/Wombat_%20Episode%201_%20Good%20Jan,%20Bad%20Jan_EnglishUS.mp4')/$value`),
-        {},
-        this.requestHeader(),
-        `${this.file.dataDirectory}pdf/${fileName}.${fileExtension}`
-      ).then((response: unknown) => {
-        console.log(`${topicName}/${articleName} PDF Success: `, response);
-        resolve(response);
-      }).catch((error: any) => {
-        console.log(`${topicName}/${articleName} PDF Fail: `, error);
-        reject(error);
-      });
-    });
+    // return new Promise(async (resolve, reject) => {
+    //   await this.http.downloadFile(
+    //     encodeURI(`https://pfizer.sharepoint.com/sites/ProtectPfizerSite/_api/web/GetFileByServerRelativeUrl('/sites/ProtectPfizerSite/Knowledge%20Documents/Awareness%20Videos/Wombat_%20Episode%201_%20Good%20Jan,%20Bad%20Jan_EnglishUS.mp4')/$value`),
+    //     {},
+    //     this.requestHeader(),
+    //     `${this.file.dataDirectory}pdf/${fileName}.${fileExtension}`
+    //   ).then((response: unknown) => {
+    //     console.log(`${topicName}/${articleName} PDF Success: `, response);
+    //     resolve(response);
+    //   }).catch((error: any) => {
+    //     console.log(`${topicName}/${articleName} PDF Fail: `, error);
+    //     reject(error);
+    //   });
+    // });
   }
 
   private requestHeader() {

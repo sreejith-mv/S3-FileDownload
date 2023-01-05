@@ -17,7 +17,7 @@ export class HomePage {
   public imageUrl: SafeUrl = "";
   private mp4 = 'https://pfizer.sharepoint.com/sites/ProtectPfizerSite/Knowledge%20Documents/Awareness%20Videos/Wombat_%20Episode%201_%20Good%20Jan,%20Bad%20Jan_EnglishUS.mp4';
   // private mp4 = 'https://brenopolanski.github.io/html5-video-webvtt-example/MIB2.mp4';
-  mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+  mimeCodec = 'video/mp4';
 
   constructor(
     private awsService: AWSService,
@@ -37,9 +37,12 @@ export class HomePage {
         componentTag: 'app-fullscreen',
         headers: {
           Authorization: token,
-          responseType: 'blob'
+          contentType: 'video/mp4'
         }
       })
+      CapacitorVideoPlayer.play({
+        playerId: 'fullscreen'
+      });
       console.log(player)
     });
   }
