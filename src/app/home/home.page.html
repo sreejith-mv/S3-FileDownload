@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Blank
@@ -6,15 +6,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-button (click)="loadVideo('')" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+
+  <div id="fullscreen" #fullscreen slot="fixed">
   </div>
+
+
+  <div id="videoElement" #videoElement slot="fixed">
+  </div>
+  <!-- <div style='max-width: 640px'>
+    <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'><iframe width="640"
+        height="360"
+        src="https://web.microsoftstream.com/embed/video/0dca34ab-f0bb-49ce-98e4-c0cc241f6b24?autoplay=false&showinfo=true"
+        allowfullscreen
+        style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></iframe>
+    </div>
+  </div> -->
+  <!-- <div id="container">
+    <ion-button (click)="download()">Download</ion-button>
+    <ion-label class="btn btn-default">
+      <input type="file" (change)="selectFile($event)">
+    </ion-label>
+    <ion-button [disabled]="!selectedFiles" (click)="upload()">Upload</ion-button>
+  </div>
+  <img [src]="imageUrl" alt=""> -->
 </ion-content>
